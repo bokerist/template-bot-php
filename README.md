@@ -4,7 +4,7 @@ A bot poker implementation.
 
 PHP client for [Bot Poker](https://botpoker.herokuapp.com/about).
 
-Developer? Check the [wiki](https://botpoker.herokuapp.com/wiki).
+Developer? Check the [documentation](https://botpoker.herokuapp.com/docs).
 
 ## How to run on localhost
 
