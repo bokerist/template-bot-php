@@ -1,6 +1,6 @@
 {
-  "require" : {
-    "silex/silex": "~2.3"
+  "require": {
+    "leafs/leaf": "^2.6"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"

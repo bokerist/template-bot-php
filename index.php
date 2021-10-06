@@ -1,27 +1,23 @@
 <?php
-
-require("vendor/autoload.php");
+require __DIR__ . "/vendor/autoload.php";
 
 require_once("./player.php");
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+$app = new Leaf\App;
 
-$app = new Silex\Application();
-
-$app->get("/", function() {
-  return new Response("200 OK", 200);
+$app->get("/", function() use($app) {
+  $app->response()->markup("200 OK", 200);
 });
 
-$app->get("/version", function() {
+$app->get("/version", function() use($app) {
   $player = new Player();
-  return new Response($player->getVersion(), 200);
+  $app->response()->markup($player->getVersion(), 200);
 });
 
-$app->post("/bet", function (Request $request) {
-  $gamestate = json_decode($request->getContent(), true);
+$app->post("/bet", function () use($app) {
+  $gamestate = $body = $app->request()->body();
   $player = new Player();
-  return new Response($player->bet($gamestate), 200);
+  $app->response()->markup($player->bet($gamestate), 200);
 });
 
 $app->run();
